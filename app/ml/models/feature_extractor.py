@@ -85,6 +85,7 @@ class FeatureExtractor:
     def _calculate_distances(self, keypoints: Dict) -> list:
         distances = []
         
+        # ---- Left side ----
         # Torso length: shoulder to hip
         if 'left_shoulder' in keypoints and 'left_hip' in keypoints:
             distances.append(self._point_distance(keypoints['left_shoulder'], keypoints['left_hip']))
@@ -112,6 +113,37 @@ class FeatureExtractor:
         # Leg lengths: knee to ankle
         if 'left_knee' in keypoints and 'left_ankle' in keypoints:
             distances.append(self._point_distance(keypoints['left_knee'], keypoints['left_ankle']))
+        else:
+            distances.append(0.0)
+
+        # ---- Right side ----
+        # Torso length: shoulder to hip
+        if 'right_shoulder' in keypoints and 'right_hip' in keypoints:
+            distances.append(self._point_distance(keypoints['right_shoulder'], keypoints['right_hip']))
+        else:
+            distances.append(0.0)
+
+        # Arm: shoulder to elbow
+        if 'right_shoulder' in keypoints and 'right_elbow' in keypoints:
+            distances.append(self._point_distance(keypoints['right_shoulder'], keypoints['right_elbow']))
+        else:
+            distances.append(0.0)
+
+        # Arm: elbow to wrist
+        if 'right_elbow' in keypoints and 'right_wrist' in keypoints:
+            distances.append(self._point_distance(keypoints['right_elbow'], keypoints['right_wrist']))
+        else:
+            distances.append(0.0)
+
+        # Leg: hip to knee
+        if 'right_hip' in keypoints and 'right_knee' in keypoints:
+            distances.append(self._point_distance(keypoints['right_hip'], keypoints['right_knee']))
+        else:
+            distances.append(0.0)
+
+        # Leg: knee to ankle
+        if 'right_knee' in keypoints and 'right_ankle' in keypoints:
+            distances.append(self._point_distance(keypoints['right_knee'], keypoints['right_ankle']))
         else:
             distances.append(0.0)
 
