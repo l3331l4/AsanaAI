@@ -4,6 +4,14 @@ import cv2
 from app.services.pose_detector import PoseDetector
 from app.ml.models.feature_extractor import FeatureExtractor
 
+pose_labels = {
+    "downward_dog": 0,
+    "goddess": 1,
+    "plank": 2,
+    "tree": 3,
+    "warrior_2": 4
+}
+
 def collect_pose_data(image_folder: str, pose_name: str):
     detector = PoseDetector()
     extractor = FeatureExtractor()
@@ -21,8 +29,11 @@ def collect_pose_data(image_folder: str, pose_name: str):
                 features = extractor.extract_features(keypoints)
                 data.append({
                     "image": image_file,
-                    "features": features.tolist()
+                    "features": features.tolist(),
+                    "label": pose_labels[pose_name]
                 })
-
+    
     with open(f'data/training/{pose_name}_features.json', 'w') as f:
         json.dump(data, f)
+
+    return data
