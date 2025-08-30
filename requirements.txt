@@ -4,3 +4,4 @@ mediapipe
 numpy
 pillow
 kagglehub
+torch
