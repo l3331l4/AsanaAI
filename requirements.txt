@@ -6,3 +6,5 @@ pillow
 kagglehub
 torch
 streamlit-webrtc
+streamlit_autorefresh
+scikit-learn
