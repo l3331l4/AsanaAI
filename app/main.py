@@ -7,7 +7,7 @@ from ml.models.pose_classifier import PoseClassifier
 from video_processor import VideoProcessor
 
 st.set_page_config(
-    page_title="Yoga Pose Classifier",
+    page_title="AsanaAI",
     page_icon="assets/favicon.ico.",
     layout="wide"
 )
@@ -39,7 +39,8 @@ padding-top: 2rem;
 """
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center; color: #432818; padding: 0rem;'>Real-Time Yoga Pose Classifier</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #432818; padding: 0rem;'>AsanaAI</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center; color: #432818; padding: 0rem;'>Real-Time Yoga Pose Classifier</h3>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; font-style: italic; font-size: 20px; color: #5e503f; margin-bottom: 4rem;'>Detect and classify yoga poses in real time</p>", unsafe_allow_html=True)
 
 @st.cache_resource
