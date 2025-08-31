@@ -9,7 +9,5 @@ venv/
 
 *.db
 
-.streamlit/
-
 data/training/
 demo_images/
