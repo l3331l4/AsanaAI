@@ -32,16 +32,23 @@ Validation accuracy: **80.98%** on a 5-class yoga pose dataset.
 ## Tech Stack
 
 * **Python 3.10+**
-* **PyTorch** – model training and inference
-* **MediaPipe** – real-time pose landmark detection
-* **Streamlit + streamlit-webrtc** – browser-based demo with live webcam input
-* **OpenCV & NumPy** – video frame handling and feature processing
-* **scikit-learn** – evaluation and metrics
+* **PyTorch** - model training and inference
+* **MediaPipe** - real-time pose landmark detection
+* **Streamlit + streamlit-webrtc** - browser-based demo with live webcam input
+* **OpenCV & NumPy** - video frame handling and feature processing
+* **scikit-learn** - evaluation and metrics
 
-(See full list in [`requirements.txt`](requirements.txt))
+## Quick Start (Docker - Recommended)
 
+### Run with Docker Compose
+```bash
+git clone https://github.com/l3331l4/AsanaAI.git
+cd AsanaAI
+docker-compose up
+```
+Then open [http://localhost:8501](http://localhost:8501) and click **Start** in the webcam widget.
 
-## Setup
+## Local Development Setup
 
 ### 1. Create and activate virtual environment
 
@@ -63,6 +70,16 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### 3. Run the Demo
+
+Start the Streamlit app:
+
+```bash
+streamlit run app/main.py
+```
+
+Then open [http://localhost:8501](http://localhost:8501) and click **Start** in the webcam widget.
+
 ## Training & Evaluation
 
 ### Prepare training data
@@ -82,13 +99,3 @@ python app/ml/training/train_model.py
 ```bash
 python app/ml/training/evaluate_model.py
 ```
-
-## Run the Demo
-
-Start the Streamlit app:
-
-```bash
-streamlit run app/main.py
-```
-
-Then open [http://localhost:8501](http://localhost:8501) and click **Start** in the webcam widget.
