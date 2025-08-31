@@ -36,7 +36,7 @@ class VideoProcessor:
                 (10, 40),
                 cv2.FONT_HERSHEY_SIMPLEX,
                 1.2,
-                (0, 0, 255),
+                (0, 255, 0),
                 3,
                 cv2.LINE_AA,
             )
