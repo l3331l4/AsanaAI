@@ -25,12 +25,22 @@ background-color: rgba(0, 0, 0, 0);
 [data-testid="stToolbar"]{
 right: 2rem;
 }
+
+[data-testid="stCustomComponentV1"]{
+transform-origin: top left;
+transform: scale(0.85);
+}
+
+[data-testid="stMainBlockContainer"]{
+padding-top: 2rem;
+}
+
 </style>
 """
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
-st.markdown("<h1 style='text-align: center; color: #432818;'>Real-Time Yoga Pose Classifier</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center; color: #432818;'>Practice yoga with AI-powered pose detection and real-time feedback</h3>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #432818; padding: 0rem;'>Real-Time Yoga Pose Classifier</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; font-style: italic; font-size: 20px; color: #5e503f; margin-bottom: 4rem;'>Detect and classify yoga poses in real time</p>", unsafe_allow_html=True)
 
 @st.cache_resource
 def load_model():
