@@ -1,7 +1,7 @@
 import mediapipe as mp
 import numpy as np
 import cv2
-from typing import Optional, Dict, Tuple
+from typing import Optional, Dict, Tuple, Union
 
 mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
@@ -18,13 +18,17 @@ class PoseDetector:
         )
         self.mp_drawing = mp_drawing
     
-    def detect(self, image: np.ndarray) -> Optional[Dict]:
+    def detect(self, image: np.ndarray, return_frame: bool = False) ->  Union[None, Dict, Tuple[Dict, np.ndarray]]:
         rgb_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
         results = self.pose.process(rgb_image)
         
         if results.pose_landmarks:
-            return self._extract_keypoints(results.pose_landmarks)
-        return None
+            keypoints = self._extract_keypoints(results.pose_landmarks)
+            if return_frame:
+                annotated_image = self.draw_pose(image, results.pose_landmarks)
+                return keypoints, annotated_image
+            return keypoints
+        return None if not return_frame else (None, image)
     
     def _extract_keypoints(self, landmarks) -> Dict[str, Tuple[float, float]]:
         keypoints = {}
