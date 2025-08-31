@@ -85,7 +85,7 @@ class FeatureExtractor:
     def _calculate_distances(self, keypoints: Dict) -> list:
         distances = []
         
-        # ---- Left side ----
+        # Left side
         # Torso length: shoulder to hip
         if 'left_shoulder' in keypoints and 'left_hip' in keypoints:
             distances.append(self._point_distance(keypoints['left_shoulder'], keypoints['left_hip']))
@@ -116,7 +116,7 @@ class FeatureExtractor:
         else:
             distances.append(0.0)
 
-        # ---- Right side ----
+        # Right side
         # Torso length: shoulder to hip
         if 'right_shoulder' in keypoints and 'right_hip' in keypoints:
             distances.append(self._point_distance(keypoints['right_shoulder'], keypoints['right_hip']))
