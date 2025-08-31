@@ -29,9 +29,8 @@ right: 2rem;
 """
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
-
-st.title("Real-Time Yoga Pose Classifier")
-st.write("Practice yoga with AI-powered pose detection and real-time feedback")
+st.markdown("<h1 style='text-align: center; color: #432818;'>Real-Time Yoga Pose Classifier</h1>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align: center; color: #432818;'>Practice yoga with AI-powered pose detection and real-time feedback</h3>", unsafe_allow_html=True)
 
 @st.cache_resource
 def load_model():
